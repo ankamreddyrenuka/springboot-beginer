@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toggle - Spring Boot App</title>
+    <title>RandomUser - Spring Boot App</title>
     <link rel="stylesheet" href="css/site.css">
-    <link rel="stylesheet" href="css/toggle.css">
+    <link rel="stylesheet" href="css/card.css">
 </head>
 <body>
     <div class="navbar">
@@ -18,20 +18,18 @@
 
     <main>
         <section class="card-page">
-            <h1>Toggle Page</h1>
+            <h1>Random User</h1>
+            <button onclick="getAndDisplayRandomUser()">Load random user</button>
             <div class="card">
                 <img id="userImage" src="img/john.png" alt="Avatar" style="width:100%">
                 <div class="container">
-                    <h4 id="userName">
-                        <b>John Doe</b>
-                    </h4>
+                    <h4 id="userName"><b>John Doe</b></h4>
                     <p id="userGender">Male</p>
                 </div>
             </div>
-            <button onclick="toggleUser()">Toggle</button>
         </section>
     </main>
 
-    <script src="js/toggle.js"></script>
+    <script src="js/randomuser.js"></script>
 </body>
 </html>
