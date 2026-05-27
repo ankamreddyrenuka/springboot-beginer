@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card - Spring Boot App</title>
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/card.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/card.html">Card</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <main>
+        <section class="card-page">
+            <h1>Card Page</h1>
+            <div class="card">
+                <img id="userImage" src="img/john.png" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4 id="userName">
+                        <b>John Doe</b>
+                    </h4>
+                    <p id="userGender">Male</p>
+                </div>
+            </div>
+            <button onclick="toggleCard()">Toggle</button>
+        </section>
+    </main>
+
+    <script src="js/site.js"></script>
+</body>
+</html>
