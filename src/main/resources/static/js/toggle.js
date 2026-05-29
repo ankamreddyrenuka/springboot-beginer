@@ -1,6 +1,6 @@
 var users = [
-    {"name": "John", "gender": "Male", "img": "img/john.png"},
-    {"name": "Jane", "gender": "Female", "img": "img/jane.png"}
+    {"name": "John", "gender": "Male", "img": "img/John.png"},
+    {"name": "Jane", "gender": "Female", "img": "img/Jane.png"}
 ];
 
 var currentUserIndex = 0;
