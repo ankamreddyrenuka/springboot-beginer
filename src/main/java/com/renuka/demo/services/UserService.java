@@ -8,8 +8,10 @@ public class UserService{
 
     public UserService(){
         allUsers = new ArrayList<>();
-        allUsers.add(new User("Renuka","https://randomuser.me/api/portraits/women/79.jpg","female",0));
+        allUsers.add(new User("Renuka","/img/Jane.png","female",0));
+        allUsers.add(new User("Sirish","/img/John.png","male",0));
     }
+    
 
     public void addUser(String name,String image,String gender){
         User newUser = new User(name,image,gender,allUsers.size());
