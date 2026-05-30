@@ -1,37 +1,57 @@
 package com.renuka.demo.services;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import com.renuka.demo.model.User;
 
-public class UserService{
-    public List<User> allUsers;
+public class UserService {
+
+    private List<User> allUsers;
 
     public UserService(){
-        allUsers = new ArrayList<>();
-        allUsers.add(new User("Renuka","/img/Jane.png","female",0));
-        allUsers.add(new User("Sirish","/img/John.png","male",0));
+        allUsers = new ArrayList<>(); // Empty Array List
+        allUsers.add(new User("Renuka", "Female", "/img/Renuka.png", 1));
+        allUsers.add(new User("Hasini", "Female", "/img/Hasini.png", 2));
     }
     
-
-    public void addUser(String name,String image,String gender){
-        User newUser = new User(name,image,gender,allUsers.size());
-        allUsers.add(newUser);
-    }
-
+    // Name is of our choice
     public List<User> getAllUsers(){
         return allUsers;
     }
 
-    public User getSingleUser(Integer id){
-        return allUsers.get(id);
+    public User getOneUser(int id){
+        for(int i = 0; i < allUsers.size(); i++){
+            User u = allUsers.get(i);
+            if(u.getId() == id){
+                return u;
+            }
+        }
+        return null;
     }
 
-    public void updateUser(String name,String gender,String image,int idx){
-        User updatedUser = new User(name,image,gender,idx);
-        allUsers.set(idx,updatedUser);
+    public User createUser(User u){
+        allUsers.add(u);
+        return u;
     }
 
-    public void deleteUser(Integer id){
-        allUsers.remove((int)id);
+    public User updateUser(int id, User user){
+        for(int i = 0; i < allUsers.size(); i++){
+            User u = allUsers.get(i);
+            if(u.getId() == id){
+                allUsers.set(i, user);
+                return u;
+            }
+        }
+        return null;
+    }
+    public void deleteUser(int id){
+        for(int i = 0; i < allUsers.size(); i++){
+            User u = allUsers.get(i);
+            if(u.getId() == id){
+                allUsers.remove(i);
+                break;
+            }
+        }
     }
 }

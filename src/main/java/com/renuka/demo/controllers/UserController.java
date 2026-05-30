@@ -1,36 +1,58 @@
-package com.renuka.demo.controllers;
+package com.anasuryareddy.WebProject.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.tags.Tag;
 
-import com.renuka.demo.model.User;
-import com.renuka.demo.services.UserService;
+import com.anasuryareddy.WebProject.model.User;
+import com.anasuryareddy.WebProject.service.UserService;
+
 
 @RestController
 @RequestMapping("/api/users")
-@Tag(name = "Users", description = "User management API")
 public class UserController {
-
-    UserService userService;
-
-    public UserController() {
+    
+    private UserService userService;
+    public UserController(){
         userService = new UserService();
     }
 
     @GetMapping
-    @Operation(summary = "Get all users", description = "Retrieve all saved users")
-    @ApiResponse(responseCode = "200", description = "Successfully retrieved users",
-        content = @Content(mediaType = "application/json", schema = @Schema(implementation = User.class)))
-    public ResponseEntity<List<User>> getAll() {
+    public ResponseEntity<List<User>> getAll(){
         return ResponseEntity.ok(userService.getAllUsers());
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> update(
+        @PathVariable int id,
+        @RequestBody User u)
+    {
+        return ResponseEntity.ok(userService.updateUser(id, u));
+    }
+
+    @PostMapping
+    public ResponseEntity<User> create(
+        @RequestBody User u)
+    {
+        User cu = userService.createUser(u);
+        return ResponseEntity.status(HttpStatus.CREATED).body(cu);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<User> delete(
+        @PathVariable int id)
+    {
+        userService.deleteUser(id);
+        return ResponseEntity.noContent().build();
+    }
+    
 }
