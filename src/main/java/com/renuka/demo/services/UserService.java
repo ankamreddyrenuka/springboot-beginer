@@ -3,8 +3,11 @@ package com.renuka.demo.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.renuka.demo.model.User;
 
+@Service
 public class UserService {
 
     private List<User> allUsers;

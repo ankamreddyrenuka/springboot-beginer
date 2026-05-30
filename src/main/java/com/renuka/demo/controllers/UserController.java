@@ -13,17 +13,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.anasuryareddy.WebProject.model.User;
-import com.anasuryareddy.WebProject.service.UserService;
+import com.renuka.demo.model.User;
+import com.renuka.demo.services.UserService;
 
 
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
-    
-    private UserService userService;
-    public UserController(){
-        userService = new UserService();
+
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping
